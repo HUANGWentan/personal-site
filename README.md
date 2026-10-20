@@ -29,6 +29,32 @@ python3 -m http.server 8000
 
 ## 部署到 Render（免费静态站）
 
+当前线上实例（已经建好）：
+
+| 项 | 值 |
+|---|---|
+| URL | <https://wentan-huang-site.onrender.com> |
+| Service ID | `srv-dbbglpvf3r2c738rcpc0` |
+| Publish Path | `.` |
+| Build Command | 空 |
+| 仓库 | <https://github.com/HUANGWentan/personal-site> |
+
+**注意：自动部署目前没有接通。** 这个服务是用 Render API + 公开仓库直接创建的，没有经过 Render 的 GitHub App 授权，所以 `git push` 不会自动触发部署。改完内容后二选一：
+
+```bash
+# 方式 1：命令行手动触发（需要 Render API Key）
+curl -X POST https://api.render.com/v1/services/srv-dbbglpvf3r2c738rcpc0/deploys \
+  -H "Authorization: Bearer $RENDER_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"clearCache":"do_not_clear"}'
+
+# 方式 2：Render 面板 → 该服务 → Manual Deploy → Deploy latest commit
+```
+
+想恢复「push 即部署」：Render 面板 → 该 Static Site → **Settings → Build & Deploy → Connect repo**，授权 GitHub 一次即可。
+
+### 从零重建（可选）
+
 ### 方式 A：面板点三下（最稳）
 
 1. 把这个 `site/` 目录推到一个 GitHub 仓库（公开或私有都行）。
