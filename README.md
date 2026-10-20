@@ -1,5 +1,7 @@
 # Wentan Huang — 个人介绍网站
 
+**线上地址：<https://wentan-huang-site.onrender.com>**（Render Static Site，免费档）
+
 纯静态站点：一个 `index.html` + 一份 CSS + 40 行 JS，**没有构建步骤、没有依赖、没有外部字体或 CDN**。
 可直接部署到 Render Static Site（免费档），也可以放到任何静态托管上。
 
