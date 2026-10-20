@@ -1,0 +1,20 @@
+# Render Blueprint — https://render.com/docs/blueprint-spec
+#
+# 一键部署：Render 面板 → New + → Blueprint → 选中这个仓库 → Apply。
+# 静态站免费，不需要服务器、不需要构建命令。
+services:
+  - type: web
+    name: wentan-huang-site
+    runtime: static
+    branch: main
+    staticPublishPath: .
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
